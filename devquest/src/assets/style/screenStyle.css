@@ -1,0 +1,17 @@
+.screen{
+    width: 90vw;
+    height: 500px;
+    border: solid brown 1px;
+    border-radius: 5px;
+}
+.character{
+    width: 50px;
+    height: 100px;
+    background-color: aqua;
+}
+.itemQuest{
+    width: 25px;
+    height: 25px;
+    background-color: blueviolet;
+    border: solid black 1px;
+}
