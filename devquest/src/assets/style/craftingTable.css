@@ -1,0 +1,12 @@
+.craftingTable{
+    height: 50px;
+    width: 90vw;
+    border: solid brown 1px;
+    border-radius: 5px;
+}
+.craftingTable--Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid orange 2px;
+}

@@ -7,3 +7,14 @@
     border: solid brown 1px;
     border-radius: 5px;
 }
+.mainItem--Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid blue 2px;
+}
+.mainItem{
+    width: 100px;
+    height: 50px;
+    border: solid blue 1px;
+}

@@ -1,11 +1,13 @@
 import React from 'react'
 
-export const ItemQuest = () => {
+export const ItemQuest = (props) => {
 
     
 
 
   return (
-    <div className='itemQuest'></div>
+    <div className='itemQuest' value="manaStone" onClick={props.method}>
+      
+    </div>
   )
 }
