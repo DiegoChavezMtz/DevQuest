@@ -1,4 +1,5 @@
 import './App.css';
+import './assets/style/mainStyle.css'
 import { Console } from './Interface/Console';
 import { Screen } from './Screen/Screen';
 import { Spellbook } from './Interface/Spellbook';

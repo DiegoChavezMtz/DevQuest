@@ -12,7 +12,7 @@ export const Console = () => {
   const handleSubmit = (event)=>{
     event.preventDefault();
     console.log(castSpell);
-    console.log(spellsList(castSpell));
+    alert(spellsList(castSpell));
     setSpell([...spell,castSpell]);
     setCastSpell('')
   }
