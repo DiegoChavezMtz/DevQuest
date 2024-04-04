@@ -10,20 +10,20 @@ export const Bag = () => {
 
   const bagSlots = player.items.bag.bagSlots;
 
-  const recolectedItems = player.items.bag.recolectedItems;
+  const recolectedItems = player.items.bag.recolectedItems; 
 
     let newArrayBagSlots = []
 
     for (let i = 0; i < bagSlots; i++) {
 
-      const elementBagSlot = <BagSlot item={recolectedItems[i]}/>
+      const elementBagSlot = <BagSlot item={recolectedItems[0]} id={i}/>
 
       newArrayBagSlots.push(elementBagSlot);
       
     }
   
 
-  console.log(newArrayBagSlots);
+  //console.log(player.items.bag.recolectedItems[0][3]);
 
   return (
     <div className='bagContainer'>

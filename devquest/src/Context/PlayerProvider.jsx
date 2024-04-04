@@ -41,7 +41,7 @@ export const PlayerProvider = ({children}) => {
     const toolPlayer = {player,setPlayer};
 
   return (
-        <playerContext.Provider value={toolPlayer}>
+        <playerContext.Provider value={toolPlayer}> 
             {children}
         </playerContext.Provider>
   )
