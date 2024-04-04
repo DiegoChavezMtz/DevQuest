@@ -17,6 +17,10 @@
     border: solid brown 1px;
     border-radius: 5px;
 }
+.bagSlot img{
+    width: 90%;
+    height: 90%;
+}
 .mainItem--Container{
     display: flex;
     justify-content: center;

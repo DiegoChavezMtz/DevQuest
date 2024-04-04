@@ -36,6 +36,8 @@ export const Screen = () => {
 
       setItems([...items,event.target.getAttribute('value')])
 
+      //console.log(items);
+
       event.target.style.display = 'none';
 
   }
@@ -45,16 +47,14 @@ export const Screen = () => {
   useEffect(()=>{
     itemsQuest.push(items);
     setPlayer(reloadPlayer);
-    console.log(reloadPlayer);
     
   },[items])
-  console.log(player)
 
   return (
     <div className='screen--Container'>
         <h5>Working Area</h5>
         <div className='screen'>
-          <div className='character'></div>
+          <div className='character'></div> 
           <ItemQuest method={handleClick}/>
           <ItemQuest method={handleClick}/>
           <ItemQuest method={handleClick}/>

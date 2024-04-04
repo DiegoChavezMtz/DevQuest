@@ -4,6 +4,10 @@
     border: solid brown 1px;
     border-radius: 5px;
 }
+.craftingTable img{
+    height: 90%;
+    
+}
 .craftingTable--Container{
     display: flex;
     justify-content: center;
