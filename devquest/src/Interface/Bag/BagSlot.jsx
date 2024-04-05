@@ -1,4 +1,5 @@
 import React from 'react'
+import { itemsList } from '../../assets/itemsList';
 
 export const BagSlot = (props) => {
 
@@ -9,7 +10,7 @@ export const BagSlot = (props) => {
    
   return (
     <div className='bagSlot' id={id}>
-        <img src={item[id]}/>
+        {item[id] ? <img src={itemsList[item[id]]}/> : <></>}
     </div> 
   )
 }

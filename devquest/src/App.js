@@ -9,6 +9,7 @@ import { MainItem } from './Interface/MainItem';
 import { PlayerProvider } from './Context/PlayerProvider';
 import { SpellProvider } from './Context/SpellProvider';
 import { CraftingTableProvider } from './Context/CraftingTableProvider';
+import {MainItemsProvider} from './Context/MainItemsProvider';
 
 function App() {
   return (
@@ -16,11 +17,15 @@ function App() {
       <PlayerProvider>
         <SpellProvider>
           <CraftingTableProvider>
-            <Screen/>
-            <CraftingTable/>
-            <MainItem/>
-            <Spellbook/>
-            <Console/>
+            <MainItemsProvider>
+
+              <Screen/>
+              <CraftingTable/>
+              <MainItem/>
+              <Spellbook/>
+              <Console/>
+
+            </MainItemsProvider>  
           </CraftingTableProvider>
         </SpellProvider>
       </PlayerProvider>

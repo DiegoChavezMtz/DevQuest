@@ -13,7 +13,7 @@ export const useMainItemsContext = ()=>{
     return context
 }
 
-const MainItemsProvider = ({children}) => {
+export const MainItemsProvider = ({children}) => {
 
     const [mainItems,setMainItems] = useState([]);
 
@@ -25,5 +25,3 @@ const MainItemsProvider = ({children}) => {
         </mainItemsContext.Provider>
     );
 };
-
-export default MainItemsProvider;

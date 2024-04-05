@@ -54,7 +54,7 @@ export const Screen = () => {
     <div className='screen--Container'>
         <h5>Working Area</h5>
         <div className='screen'>
-          <div className='character'></div> 
+          <img className='character' src="https://www.nicepng.com/png/detail/556-5563824_boba-fett-darkest-dungeon-character-icons.png" alt="" />
           <ItemQuest method={handleClick}/>
           <ItemQuest method={handleClick}/>
           <ItemQuest method={handleClick}/>

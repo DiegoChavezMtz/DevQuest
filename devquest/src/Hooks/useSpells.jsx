@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { usePlayerContext } from '../Context/PlayerProvider'
 import { useCraftingTableContext } from '../Context/CraftingTableProvider';
+import { useMainItemsContext } from '../Context/MainItemsProvider';
 
 export const useSpells = () => {
 
     const {player,setPlayer} = usePlayerContext();
     const {craftingTable,setCraftingTable} = useCraftingTableContext();
+    const {mainItems,setMainItems} = useMainItemsContext();
 
     const reloadPlayer = {
         character : {
@@ -28,6 +30,8 @@ export const useSpells = () => {
             listSpells : []
         }
     }
+
+    let newMainItem;
 
     const spellsList =(spellCasted)=>{
 
@@ -59,6 +63,14 @@ export const useSpells = () => {
             
             } ,
             'git commit -m' : ()=>{
+
+                newMainItem = craftingTable;
+
+                console.log(newMainItem);
+                
+                setMainItems(newMainItem);
+
+                setCraftingTable([]);
                 
                 alert('Confirmar la union de todos los objetos')
             },
