@@ -19,7 +19,7 @@ export const PlayerProvider = ({children}) => {
     const [player,setPlayer] = useState({
         character : {
             level: 1,
-            name: 'Mago',
+            name: 'Mago', 
             classe: 'Spellcaster'
         },
         items : {

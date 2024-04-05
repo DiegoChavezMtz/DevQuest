@@ -33,29 +33,45 @@ export const useSpells = () => {
 
         const spell ={
             'git init' : ()=>{
-                console.log('Inicia en un nuevo dungeon')
+                alert('Inicia en un nuevo dungeon')
             },
             'git add .' : ()=>{
 
                 let items = player.items.bag.recolectedItems[0];
                 setCraftingTable(items);
                 setPlayer(reloadPlayer);
-                console.log(reloadPlayer);
-                console.log(items)
-                console.log('Añade los elementos al Crafting Table')
+                
+                alert('Añade los elementos al Crafting Table')
             },
-            'git reset' : 'Regresaron los objetos a la bolsa',
-            'git commit -m' : 'Confirmar la union de todos los objetos',
-            'git branch' : 'Ver los diferentes objetos crafteados',
-            'git switch' : 'Cambiar entre los diferentes objetos crafteados',
-            'git checkout -b' : 'Crear un nuevo espacio para craftear un objeto',
-            'git merge' : 'Combinar dos objetos crafteados',
-            'git pull' : 'Traer un objeto crafteado guardado en el portal y combinarlo con uno nuestro',
-            'git push' : 'Enviar un objeto crafteado al portal y guardarlo ahí',
-            'git remote add' : 'Abrir una conexión con un portal',
-            'git remote remove' : 'Cerrar una conexión a un portal', //los portales solo funcionan dentro del mismo dungeon
-            'git remote -v' : 'Ver los portales a los que estamos conectados',
-            'git clone' : 'Iniciar un dungeon ya existente'
+            'git reset' :()=>{
+
+                const itemsQuest = reloadPlayer.items.bag.recolectedItems;
+
+                itemsQuest.push(craftingTable);
+
+                console.log(reloadPlayer.items.bag.recolectedItems);
+
+                setPlayer(reloadPlayer);
+
+                setCraftingTable([]);
+
+                alert('Regresaron los objetos a la bolsa')
+            
+            } ,
+            'git commit -m' : ()=>{
+                
+                alert('Confirmar la union de todos los objetos')
+            },
+            'git branch' : ()=>{alert('Ver los diferentes objetos crafteados')},
+            'git switch' :()=>{alert('Cambiar entre los diferentes objetos crafteados')} ,
+            'git checkout -b' : ()=>{alert('Crear un nuevo espacio para craftear un objeto')},
+            'git merge' : ()=>{alert('Combinar dos objetos crafteados')},
+            'git pull' : ()=>{alert('Traer un objeto crafteado guardado en el portal y combinarlo con uno nuestro')},
+            'git push' : ()=>{alert('Enviar un objeto crafteado al portal y guardarlo ahí')},
+            'git remote add' : ()=>{alert('Abrir una conexión con un portal')},
+            'git remote remove' :()=>{alert('Cerrar una conexión a un portal')} , //los portales solo funcionan dentro del mismo dungeon
+            'git remote -v' : ()=>{alert('Ver los portales a los que estamos conectados')},
+            'git clone' : ()=>{alert('Iniciar un dungeon ya existente')}
         } 
 
         if(spell[spellCasted]){
