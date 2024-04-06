@@ -18,10 +18,10 @@ function App() {
         <SpellProvider>
           <CraftingTableProvider>
             <MainItemsProvider>
-
-              <Screen/>
-              <CraftingTable/>
+             
               <MainItem/>
+              <CraftingTable/>
+              <Screen/>
               <Spellbook/>
               <Console/>
 

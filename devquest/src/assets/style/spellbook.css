@@ -1,6 +1,22 @@
+.spellBook--Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 10%;
+    
+}
 .spellBook{
-    width: 90vw;
-    height: 100px;
+    width: 90%;
+    height: 90%;
     border: solid brown 1px;
     overflow-y:scroll;
+}
+.spelltable--Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10%;
 }
