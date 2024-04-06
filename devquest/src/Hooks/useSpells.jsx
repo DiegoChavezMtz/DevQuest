@@ -49,18 +49,23 @@ export const useSpells = () => {
             },
             'git reset' :()=>{
 
-                const itemsQuest = reloadPlayer.items.bag.recolectedItems;
+                if(craftingTable.length != 0){
 
-                itemsQuest.push(craftingTable);
+                    const itemsQuest = reloadPlayer.items.bag.recolectedItems;
 
-                console.log(reloadPlayer.items.bag.recolectedItems);
-
-                setPlayer(reloadPlayer);
-
-                setCraftingTable([]);
-
-                alert('Regresaron los objetos a la bolsa')
-            
+                    itemsQuest.push(craftingTable);
+    
+                    console.log(reloadPlayer.items.bag.recolectedItems);
+    
+                    setPlayer(reloadPlayer);
+    
+                    setCraftingTable([]);
+    
+                    alert('Regresaron los objetos a la bolsa');
+                    
+                }else{
+                    alert('No hay nada en el craftin area');
+                }
             } ,
             'git commit -m' : ()=>{
 
