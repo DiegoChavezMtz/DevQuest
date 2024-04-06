@@ -53,14 +53,106 @@ export const Screen = () => {
   return (
     <div className='screen--Container'>
         <h5>Working Area</h5>
-        <div className='screen'>
-          <img className='character' src="https://www.nicepng.com/png/detail/556-5563824_boba-fett-darkest-dungeon-character-icons.png" alt="" />
-          <ItemQuest method={handleClick}/>
-          <ItemQuest method={handleClick}/>
-          <ItemQuest method={handleClick}/>
-          <ItemQuest method={handleClick}/>
-        </div>
         <Bag/>
+        <div className='screen'>
+          
+          <div className='screenGrid'><img className='character' src="https://www.nicepng.com/png/detail/556-5563824_boba-fett-darkest-dungeon-character-icons.png" alt="" /></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'><ItemQuest method={handleClick}/></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'><ItemQuest method={handleClick}/></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'><ItemQuest method={handleClick}/></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'><ItemQuest method={handleClick}/></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+          <div className='screenGrid'></div>
+        </div>
     </div>
     
   )

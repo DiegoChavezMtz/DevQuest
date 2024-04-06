@@ -18,7 +18,7 @@ export const Console = () => {
   }
 
   return (
-    <div>
+    <div className='spelltable--Container'>
       Spelltable
       <form onSubmit={handleSubmit}>
         <input  type="text-area" 

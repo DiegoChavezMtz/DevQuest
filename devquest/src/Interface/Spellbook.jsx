@@ -7,7 +7,7 @@ export const Spellbook = () => {
   const {spell,setSpell} = useSpellContext();
 
   return (
-    <div>
+    <div className='spellBook--Container'>
         Spellbook
         <div className='spellBook'> 
             {spell.map((e)=>{
