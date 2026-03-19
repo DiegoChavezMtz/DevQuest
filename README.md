@@ -3,6 +3,8 @@
 Un juego de rol educativo donde aprendes Git 
 crafteando items mágicos en un dungeon.
 
+Puedes probarlo: https://diegochavezmtz.github.io/DevQuest
+
 ## El problema que resuelve
 
 Enseño Git a estudiantes de 4to y 5to semestre 
