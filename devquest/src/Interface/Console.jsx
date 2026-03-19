@@ -19,15 +19,15 @@ export const Console = () => {
 
   return (
     <div className='spelltable--Container'>
-      Spelltable
+      <h5>Spelltable</h5>
       <form onSubmit={handleSubmit}>
-        <input  type="text-area" 
-                value={castSpell}
+        <input  type="text"
+                value={castSpell || ''}
+                placeholder="git add ."
                 onChange={(e)=> setCastSpell(e.target.value)}
         />
-        <button type='submit' >Enviar</button>
+        <button type='submit'>Cast</button>
       </form>
-        
     </div>
   )
 }

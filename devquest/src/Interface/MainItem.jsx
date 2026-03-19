@@ -24,7 +24,7 @@ export const MainItem = () => {
     <div className='mainItem--Container'>
         <h5>MainItem (Repositorio)</h5>
         <div className='mainItem'>
-          {mainItems ? <img src={itemsList[typeCombination]} alt="" /> : <></>}
+          {mainItems.length > 0 ? <img src={itemsList[typeCombination]} alt={typeCombination} /> : <></>}
         </div>
     </div>
   )

@@ -1,7 +1,82 @@
-*{
-    margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* ── Variables ───────────────────────────────────────── */
+:root {
+  --bg-deep:        #07070d;
+  --bg-panel:       #0f0f1a;
+  --bg-panel-light: #171727;
+  --bg-inset:       #0a0a12;
+
+  --border-gold:       #c9a840;
+  --border-gold-dark:  #7a5f1a;
+  --border-stone:      #2e2e42;
+  --border-stone-lite: #3e3e56;
+
+  --text-parchment: #e8d5a3;
+  --text-gold:      #f0c040;
+  --text-muted:     #7a6e52;
+  --text-dim:       #4a4a66;
+
+  --accent-green:  #3ddc84;
+  --accent-red:    #c0392b;
+  --glow-gold:     rgba(201, 168, 64, 0.18);
+  --glow-gold-str: rgba(201, 168, 64, 0.45);
 }
-.App{
-    height: 100vh;
-    width: 100vw;
+
+/* ── Reset ───────────────────────────────────────────── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  background-color: var(--bg-deep);
+  color: var(--text-parchment);
+  font-family: 'Crimson Pro', Georgia, serif;
+}
+
+/* ── App layout grid ─────────────────────────────────── */
+.App {
+  display: grid;
+  grid-template-columns: 58% 42%;
+  grid-template-rows: auto auto 1fr auto;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--bg-deep);
+  overflow: hidden;
+}
+
+/* column assignments */
+.screen--Container       { grid-column: 1; grid-row: 1 / -1; }
+.mainItem--Container     { grid-column: 2; grid-row: 1; }
+.craftingTable--Container{ grid-column: 2; grid-row: 2; }
+.spellBook--Container    { grid-column: 2; grid-row: 3; }
+.spelltable--Container   { grid-column: 2; grid-row: 4; }
+
+/* ── Shared panel look ───────────────────────────────── */
+.screen--Container,
+.mainItem--Container,
+.craftingTable--Container,
+.spellBook--Container,
+.spelltable--Container {
+  border: 1px solid var(--border-gold-dark);
+  box-shadow: inset 0 0 0 1px var(--border-stone);
+  background-color: var(--bg-panel);
+  overflow: hidden;
+}
+
+/* ── Panel headers (h5) ──────────────────────────────── */
+h5 {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-gold);
+  background: linear-gradient(90deg, var(--bg-inset) 0%, var(--bg-panel-light) 100%);
+  border-bottom: 1px solid var(--border-gold-dark);
+  padding: 6px 12px;
+  flex-shrink: 0;
 }

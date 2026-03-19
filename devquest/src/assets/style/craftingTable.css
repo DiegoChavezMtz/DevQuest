@@ -1,18 +1,45 @@
-.craftingTable--Container{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    border: solid orange 5px;
-    height: 15%;
+/* ── Crafting Table (Staging Area) ───────────────────── */
+.craftingTable--Container {
+  display: flex;
+  flex-direction: column;
 }
-.craftingTable{
-    height: 90%;
-    width: 50%;
-    border: solid brown 1px;
-    border-radius: 5px;
-    
+
+.craftingTable {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 12px,
+      rgba(201,168,64,0.03) 12px,
+      rgba(201,168,64,0.03) 14px
+    ),
+    var(--bg-inset);
+  border-top: 1px solid var(--border-stone);
 }
-.craftingTable img{
-    width:25%;
-    
+
+.craftingTable img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border: 1px solid var(--border-gold-dark);
+  border-radius: 4px;
+  background: var(--bg-panel);
+  padding: 3px;
+  box-shadow:
+    0 0 8px var(--glow-gold),
+    inset 0 0 4px rgba(0,0,0,0.5);
+  filter: drop-shadow(0 0 4px var(--glow-gold-str));
+  animation: craftPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes craftPulse {
+  0%, 100% { box-shadow: 0 0 6px var(--glow-gold);  }
+  50%       { box-shadow: 0 0 14px var(--glow-gold-str); }
 }

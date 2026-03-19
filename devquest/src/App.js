@@ -1,33 +1,36 @@
 import './App.css';
-import './assets/style/mainStyle.css'
-import { Console } from './Interface/Console';
-import { Screen } from './Screen/Screen';
-import { Spellbook } from './Interface/Spellbook';
-import { CraftingTable } from './Interface/CraftingTable';
-import { MainItem } from './Interface/MainItem';
-//Providers
+import './assets/style/mainStyle.css';
+import { Routes, Route } from 'react-router-dom';
+import { Notification } from './Components/Notification';
+// Providers
+import { NotificationProvider } from './Context/NotificationProvider';
 import { PlayerProvider } from './Context/PlayerProvider';
 import { SpellProvider } from './Context/SpellProvider';
 import { CraftingTableProvider } from './Context/CraftingTableProvider';
 import { MainItemsProvider } from './Context/MainItemsProvider';
+// Pages
+import { Home } from './Pages/Home';
+import { Level2 } from './Pages/Level2';
+import { Level3 } from './Pages/Level3';
+
 function App() {
   return (
-    <div className="App">
+    <NotificationProvider>
       <PlayerProvider>
         <SpellProvider>
           <CraftingTableProvider>
             <MainItemsProvider>
-
-              <MainItem/>
-              <CraftingTable/>
-              <Screen/>
-              <Spellbook/>
-              <Console/>
+              <Notification />
+              <Routes>
+                <Route path="/"        element={<Home />} />
+                <Route path="/level/2" element={<Level2 />} />
+                <Route path="/level/3" element={<Level3 />} />
+              </Routes>
             </MainItemsProvider>
           </CraftingTableProvider>
         </SpellProvider>
       </PlayerProvider>
-    </div>
+    </NotificationProvider>
   );
 }
 

@@ -11,8 +11,8 @@ export const CraftingTable = () => {
     <div className='craftingTable--Container'>
         <h5>Crafting Table (Stagin Area)</h5>
         <div className='craftingTable'>
-            {craftingTable != [] ? craftingTable.map((e)=>{
-              return <img src={itemsList[e]} alt="" />
+            {craftingTable.length > 0 ? craftingTable.map((e, i)=>{
+              return <img key={i} src={itemsList[e]} alt={e} />
             }) : <></>}
         </div>
     </div>

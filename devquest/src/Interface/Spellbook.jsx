@@ -8,10 +8,10 @@ export const Spellbook = () => {
 
   return (
     <div className='spellBook--Container'>
-        Spellbook
-        <div className='spellBook'> 
-            {spell.map((e)=>{
-              return <p>{e}</p>
+        <h5>Spellbook</h5>
+        <div className='spellBook'>
+            {spell.map((e, i)=>{
+              return <p key={i}>{e}</p>
             })}
         </div>
     </div>

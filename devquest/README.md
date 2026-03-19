@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# GitQuest
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Un juego de rol educativo donde aprendes Git 
+crafteando items mágicos en un dungeon.
 
-## Available Scripts
+## El problema que resuelve
 
-In the project directory, you can run:
+Enseño Git a estudiantes de 4to y 5to semestre 
+que lo usan por primera vez de forma real — no 
+solo para clonar repos.
 
-### `npm start`
+El obstáculo más común no es la sintaxis. Es 
+abstraer las tres áreas de trabajo: working 
+directory, staging area y repositorio. Los 
+estudiantes memorizan los comandos pero no 
+entienden qué está pasando ni por qué.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Los simuladores de terminal no ayudan — siguen 
+siendo abstractos. Necesitaba algo tangible.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## La solución
 
-### `npm test`
+Cada área de Git se convierte en un lugar físico 
+con objetos que puedes ver y mover:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Git | GitQuest |
+|-----|----------|
+| Working directory | Mapa del dungeon |
+| git add | Mover items a la Crafting Table |
+| Staging area | Crafting Table |
+| git commit | Fusionar items al Repositorio |
+| git reset | Devolver items al inventario |
 
-### `npm run build`
+La metáfora no es decorativa — es funcional. 
+Cuando un estudiante escribe `git add .` y ve 
+sus items moverse físicamente a la Crafting 
+Table, entiende qué hace staging de una forma 
+que ningún diagrama logra.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+La inspiración fue D&D y el crafting de items: 
+si juntas ingredientes en una mesa de trabajo 
+y los confirmas, obtienes un artefacto más 
+poderoso. Eso es exactamente lo que hace un 
+commit.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Decisiones de diseño
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Sin instalación, sin requisitos.**
+Corre completamente en el navegador para que 
+funcione en cualquier dispositivo — incluyendo 
+el celular de un estudiante que no tiene laptop 
+en clase. El único requisito es una URL.
 
-### `npm run eject`
+**Sesiones cortas e independientes.**
+No es una campaña larga. Está diseñado para 
+usarse en 15-20 minutos dentro de una clase, 
+enfocado en un concepto específico. El 
+localStorage mantiene el progreso sin necesitar 
+cuenta ni backend.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**React para escalar niveles.**
+La arquitectura en componentes permite agregar 
+nuevos niveles y comandos sin reescribir la 
+lógica existente. Cada nivel es independiente 
+y reutiliza los mismos componentes de consola, 
+inventario y mapa.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Flujo actual
+```
+git init → git config → explorar dungeon 
+→ recolectar items → git add → git commit 
+→ artefacto forjado
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Cada comando tiene un efecto visual inmediato 
+en el juego. El jugador aprende Git haciendo, 
+no leyendo.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Stack
 
-## Learn More
+- React + Vite
+- React Router para la navegación entre niveles
+- localStorage para persistencia de sesión
+- GitHub Pages para deploy
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Estado del proyecto
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+El juego cubre el flujo core de Git: 
+init → config → add → commit → reset.
 
-### Code Splitting
+En desarrollo activo basado en feedback de 
+estudiantes reales. Los comandos avanzados 
+(branch, merge, push) están planeados como 
+niveles futuros.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Cómo correrlo localmente
+```bash
+git clone https://github.com/DiegoChavezMtz/DevQuest
+cd devquest
+npm install
+npm run dev
+```
 
-### Analyzing the Bundle Size
+## Por qué lo construí
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Porque la mejor forma de entender algo a fondo 
+es tener que enseñárselo a alguien más — y la 
+mejor forma de enseñarlo es hacerlo imposible 
+de malinterpretar.

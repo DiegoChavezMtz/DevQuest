@@ -1,23 +1,27 @@
-import React , {useState,useContext} from 'react';
+import React, { useState, useEffect, useContext } from 'react'
 
 const mainItemsContext = React.createContext();
 
-export const useMainItemsContext = ()=>{
-
+export const useMainItemsContext = () => {
     const context = useContext(mainItemsContext);
-
-    if(!context){
-        throw new Error('useSearchContext must be usead whit a SearchProvider');
+    if (!context) {
+        throw new Error('useMainItemsContext must be used within a MainItemsProvider');
     }
-
-    return context
+    return context;
 }
 
-export const MainItemsProvider = ({children}) => {
+export const MainItemsProvider = ({ children }) => {
 
-    const [mainItems,setMainItems] = useState([]);
+    const [mainItems, setMainItems] = useState(() => {
+        const saved = localStorage.getItem('devquest_mainItems');
+        return saved ? JSON.parse(saved) : [];
+    });
 
-    const toolMainItem = {mainItems,setMainItems};
+    useEffect(() => {
+        localStorage.setItem('devquest_mainItems', JSON.stringify(mainItems));
+    }, [mainItems]);
+
+    const toolMainItem = { mainItems, setMainItems };
 
     return (
         <mainItemsContext.Provider value={toolMainItem}>

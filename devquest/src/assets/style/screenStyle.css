@@ -1,46 +1,69 @@
-.screen--Container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 5px solid green;
-    height: 50%;
-}
-.screen{
-    width: 90%;
-    height: 70%;
-    border: solid brown 1px;
-    border-radius: 5px;
-    background: url(https://pm1.aminoapps.com/6300/5bc341fd80ca1b1d46a9cc5b99a6a713c433eb0b_00.jpg);
-    background-size:auto;
-
-    display: grid;
-    /* grid-template-columns: repeat(12, 25px); */
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-}
-.screenGrid{
-    border: solid 1px rgba(150, 150, 150, 0.224);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-.character{
-    height: 80px;
-    background-color: aqua;
-}
-.itemQuest{
-    width: 25px;
-    height: 25px;
-    background: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e34b8490-3521-4ea1-bf5f-eca2bd8cb8fa/dcci3yl-83e4a1b5-0631-49c0-a633-ac2835338874.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UzNGI4NDkwLTM1MjEtNGVhMS1iZjVmLWVjYTJiZDhjYjhmYVwvZGNjaTN5bC04M2U0YTFiNS0wNjMxLTQ5YzAtYTYzMy1hYzI4MzUzMzg4NzQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.BQnATe3E0Uw3i5fBds-9kQJL8HFKuJIxg-OHzYMCjUw');
-    border: solid black 1px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    transition: 200ms;
+/* ── Screen container ────────────────────────────────── */
+.screen--Container {
+  display: flex;
+  flex-direction: column;
 }
 
-.itemQuest:hover{
-    cursor: pointer;
-    transform: scale(1.15);
+/* ── Dungeon map grid ────────────────────────────────── */
+.screen {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  background:
+    url('https://pm1.aminoapps.com/6300/5bc341fd80ca1b1d46a9cc5b99a6a713c433eb0b_00.jpg')
+    center / cover no-repeat;
+  image-rendering: pixelated;
+  position: relative;
+}
+
+/* dark overlay so the background doesn't overpower */
+.screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 10, 0.55);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.screenGrid {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(80, 70, 40, 0.22);
+}
+
+/* ── Character sprite ────────────────────────────────── */
+.character {
+  height: 70px;
+  filter: drop-shadow(0 0 6px rgba(201, 168, 64, 0.6));
+  background: transparent;
+}
+
+/* ── Quest item ──────────────────────────────────────── */
+.itemQuest {
+  width: 26px;
+  height: 26px;
+  background:
+    url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e34b8490-3521-4ea1-bf5f-eca2bd8cb8fa/dcci3yl-83e4a1b5-0631-49c0-a633-ac2835338874.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UzNGI4NDkwLTM1MjEtNGVhMS1iZjVmLWVjYTJiZDhjYjhmYVwvZGNjaTN5bC04M2U0YTFiNS0wNjMxLTQ5YzAtYTYzMy1hYzI4MzUzMzg4NzQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.BQnATe3E0Uw3i5fBds-9kQJL8HFKuJIxg-OHzYMCjUw')
+    center / contain no-repeat;
+  border: 1px solid rgba(201, 168, 64, 0.5);
+  border-radius: 3px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  animation: itemFloat 3s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(201, 168, 64, 0.4);
+}
+
+.itemQuest:hover {
+  cursor: pointer;
+  transform: scale(1.25);
+  box-shadow: 0 0 14px rgba(201, 168, 64, 0.85);
+}
+
+@keyframes itemFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-4px); }
 }
