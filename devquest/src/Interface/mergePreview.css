@@ -1,0 +1,150 @@
+.merge__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.merge__modal {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-gold);
+    box-shadow: 0 0 32px var(--glow-gold-str);
+    min-width: 460px;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow: hidden;
+}
+
+.merge__modal h5 {
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+.merge__body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px 24px;
+}
+
+.merge__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 12px;
+    border: 1px solid var(--border-stone);
+    background: var(--bg-inset);
+    border-radius: 4px;
+    min-width: 90px;
+    transition: border-color 0.2s;
+}
+
+.merge__card--burnt {
+    border-color: var(--accent-red);
+}
+
+.merge__card-label {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    color: var(--text-gold);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.merge__card-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.merge__card-name {
+    font-size: 10px;
+    color: var(--text-parchment);
+    text-align: center;
+    max-width: 85px;
+    word-break: break-word;
+}
+
+.merge__card-tier {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.merge__card-empty {
+    font-size: 11px;
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+.merge__plus,
+.merge__arrow {
+    font-size: 20px;
+    color: var(--text-gold);
+    flex-shrink: 0;
+}
+
+.merge__warning {
+    text-align: center;
+    color: var(--accent-red);
+    font-size: 12px;
+    padding: 0 20px 12px;
+    font-style: italic;
+}
+
+.merge__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 14px 20px;
+    border-top: 1px solid var(--border-stone);
+    background: var(--bg-inset);
+}
+
+.merge__btn {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border: 1px solid var(--border-stone-lite);
+    background: var(--bg-panel-light);
+    color: var(--text-parchment);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+}
+
+.merge__btn--cancel:hover {
+    border-color: var(--text-muted);
+}
+
+.merge__btn--confirm {
+    border-color: var(--border-gold-dark);
+    color: var(--text-gold);
+}
+
+.merge__btn--confirm:hover {
+    border-color: var(--border-gold);
+    box-shadow: 0 0 8px var(--glow-gold);
+}
+
+.merge__btn--danger {
+    border-color: var(--accent-red);
+    color: var(--accent-red);
+}
+
+.merge__btn--danger:hover {
+    box-shadow: 0 0 8px rgba(192, 57, 43, 0.4);
+}

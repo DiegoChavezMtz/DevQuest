@@ -1,110 +1,114 @@
-/* ── Spellbook ────────────────────────────────────────── */
-.spellBook--Container {
+/* ── Grimorio + Console (panel fusionado) ─────────────── */
+.grimorio--Container {
   display: flex;
   flex-direction: column;
+  height: 100%;
   overflow: hidden;
 }
 
-.spellBook {
+/* Área de historial scrollable */
+.grimorio__log {
   flex: 1;
   overflow-y: auto;
-  padding: 8px 14px;
+  padding: 6px 14px;
   background: var(--bg-inset);
   border-top: 1px solid var(--border-stone);
 }
 
-.spellBook::-webkit-scrollbar {
-  width: 5px;
-}
-.spellBook::-webkit-scrollbar-track {
-  background: var(--bg-panel);
-}
-.spellBook::-webkit-scrollbar-thumb {
+.grimorio__log::-webkit-scrollbar { width: 5px; }
+.grimorio__log::-webkit-scrollbar-track { background: var(--bg-panel); }
+.grimorio__log::-webkit-scrollbar-thumb {
   background: var(--border-gold-dark);
   border-radius: 2px;
 }
 
-.spellBook p {
+.grimorio__log p {
   font-family: 'Courier New', monospace;
-  font-size: 12px;
+  font-size: 11px;
   color: var(--accent-green);
-  padding: 3px 0;
-  border-bottom: 1px solid rgba(61, 220, 132, 0.08);
-  letter-spacing: 0.5px;
+  padding: 2px 0;
+  border-bottom: 1px solid rgba(61, 220, 132, 0.07);
+  letter-spacing: 0.4px;
 }
 
-.spellBook p::before {
+.grimorio__log p::before {
   content: '$ ';
   color: var(--text-muted);
 }
 
-/* ── Console (Spelltable) ────────────────────────────── */
-.spelltable--Container {
-  display: flex;
-  flex-direction: column;
-  background: var(--bg-inset);
-  border-top: 1px solid var(--border-gold-dark);
+.grimorio__empty {
+  font-size: 11px;
+  color: var(--text-dim) !important;
+  font-style: italic;
+  border-bottom: none !important;
 }
 
-.spelltable--Container form {
-  flex: 1;
+.grimorio__empty::before {
+  content: '' !important;
+}
+
+/* Input fijo al fondo */
+.grimorio__form {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
+  background: var(--bg-inset);
+  border-top: 1px solid var(--border-gold-dark);
+  flex-shrink: 0;
 }
 
-.spelltable--Container input {
+.grimorio__form input {
   flex: 1;
   background: var(--bg-deep);
   border: 1px solid var(--border-stone-lite);
   border-radius: 4px;
   color: var(--accent-green);
   font-family: 'Courier New', monospace;
-  font-size: 13px;
-  padding: 7px 10px;
+  font-size: 12px;
+  padding: 6px 10px;
   outline: none;
   transition: border-color 200ms, box-shadow 200ms;
   caret-color: var(--accent-green);
+  min-width: 0;
 }
 
-.spelltable--Container input:focus {
+.grimorio__form input:focus {
   border-color: var(--border-gold-dark);
   box-shadow: 0 0 0 2px var(--glow-gold);
 }
 
-.spelltable--Container input::placeholder {
+.grimorio__form input::placeholder {
   color: var(--text-dim);
 }
 
-.spelltable--Container button {
+.grimorio__form button {
   background: linear-gradient(180deg, #2a1f08 0%, #1a1200 100%);
   border: 1px solid var(--border-gold-dark);
   border-radius: 4px;
   color: var(--text-gold);
   font-family: 'Cinzel', serif;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  padding: 7px 16px;
+  padding: 6px 14px;
   cursor: pointer;
   transition: background 200ms, box-shadow 200ms, border-color 200ms;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.spelltable--Container button:hover {
+.grimorio__form button:hover {
   background: linear-gradient(180deg, #3d2e0e 0%, #2a1f08 100%);
   border-color: var(--border-gold);
-  box-shadow: 0 0 10px var(--glow-gold);
+  box-shadow: 0 0 8px var(--glow-gold);
 }
 
-.spelltable--Container button:active {
+.grimorio__form button:active {
   transform: translateY(1px);
 }
 
-/* label above the input row */
-.spelltable--Container > span,
-.spelltable--Container > p {
-  display: none;
-}
+/* ── Legado: clases del Spellbook antiguo (por si se usan en otro sitio) ── */
+.spellBook--Container { display: flex; flex-direction: column; overflow: hidden; }
+.spelltable--Container { display: flex; flex-direction: column; background: var(--bg-inset); }

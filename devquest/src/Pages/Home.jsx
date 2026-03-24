@@ -17,7 +17,7 @@ export const Home = () => {
         setSpellHistory(prev => [...prev, input]);
         setCastSpell('');
 
-        if (input === 'git init' || input.startsWith('git init ')) {
+        if (input === 'git init') {
             notify('¡Dungeon inicializado! Preparando tu aventura...', 'success');
             setTimeout(() => navigate('/level/2'), 1200);
         } else {

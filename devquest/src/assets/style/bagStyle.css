@@ -28,13 +28,28 @@
     inset 0 0 0 1px var(--border-stone),
     inset 0 2px 6px rgba(0,0,0,0.6);
   padding: 3px;
-  transition: box-shadow 200ms;
+  transition: box-shadow 180ms, border-color 180ms, background 180ms;
 }
 
-.bagSlot:has(img) {
+/* Slot con item: glow dorado */
+.bagSlot--filled {
+  cursor: pointer;
   box-shadow:
     inset 0 0 0 1px var(--border-gold-dark),
     0 0 8px var(--glow-gold);
+}
+
+/* Hover sobre slot con item: indica "devolver" con rojo suave */
+.bagSlot--filled:hover {
+  border-color: var(--accent-red);
+  box-shadow:
+    inset 0 0 0 1px rgba(192, 57, 43, 0.5),
+    0 0 10px rgba(192, 57, 43, 0.35);
+  background: rgba(192, 57, 43, 0.06);
+}
+
+.bagSlot--filled:hover img {
+  filter: drop-shadow(0 0 4px rgba(192, 57, 43, 0.6));
 }
 
 .bagSlot img {
@@ -42,34 +57,67 @@
   height: 90%;
   object-fit: contain;
   filter: drop-shadow(0 0 3px var(--glow-gold-str));
+  transition: filter 180ms;
+  pointer-events: none;
 }
 
 /* ── Main Item (Repositorio) ─────────────────────────── */
 .mainItem--Container {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .mainItem {
   flex: 1;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 10px;
-  background: radial-gradient(ellipse at center, var(--bg-panel-light) 0%, var(--bg-inset) 100%);
+  gap: 12px;
+  padding: 6px 14px;
+  background: linear-gradient(90deg, var(--bg-inset) 0%, var(--bg-panel) 100%);
+  overflow: hidden;
 }
 
 .mainItem img {
-  max-height: 100%;
-  max-width: 80%;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
-  filter:
-    drop-shadow(0 0 10px var(--glow-gold-str))
-    drop-shadow(0 0 24px rgba(201,168,64,0.25));
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px var(--glow-gold-str));
   animation: repoGlow 4s ease-in-out infinite;
 }
 
 @keyframes repoGlow {
-  0%, 100% { filter: drop-shadow(0 0 8px var(--glow-gold-str)); }
-  50%       { filter: drop-shadow(0 0 18px rgba(240,192,64,0.7)); }
+  0%, 100% { filter: drop-shadow(0 0 4px var(--glow-gold-str)); }
+  50%       { filter: drop-shadow(0 0 12px rgba(240,192,64,0.7)); }
+}
+
+.mainItem__info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow: hidden;
+}
+
+.mainItem__name {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 13px;
+  color: var(--text-parchment);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mainItem__tier {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.mainItem__empty {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-style: italic;
 }

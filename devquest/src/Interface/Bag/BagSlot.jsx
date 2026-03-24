@@ -1,16 +1,26 @@
 import React from 'react'
 import { itemsList } from '../../assets/itemsList';
 
-export const BagSlot = (props) => {
+// El item en bolsa puede ser { type, pos } (nuevo) o string legacy
+const getItemType = (raw) => (typeof raw === 'string' ? raw : raw?.type);
 
-    const item = props.item ? props.item : '';
-    const id = props.id == '' ? '0' : props.id;
+export const BagSlot = ({ item, id, onRemove }) => {
+    const raw       = item?.[id];
+    const itemType  = getItemType(raw);
 
-    console.log(id)
-   
-  return (
-    <div className='bagSlot' id={id}>
-        {item[id] ? <img src={itemsList[item[id]]}/> : <></>}
-    </div> 
-  )
-}
+    const handleClick = () => {
+        if (itemType && onRemove) {
+            onRemove(id);
+        }
+    };
+
+    return (
+        <div
+            className={`bagSlot ${itemType ? 'bagSlot--filled' : ''}`}
+            onClick={handleClick}
+            title={itemType ? `Devolver "${itemType}" al dungeon` : ''}
+        >
+            {itemType ? <img src={itemsList[itemType]} alt={itemType} /> : null}
+        </div>
+    );
+};

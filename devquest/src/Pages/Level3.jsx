@@ -2,19 +2,21 @@ import React from 'react'
 import { MainItem } from '../Interface/MainItem'
 import { CraftingTable } from '../Interface/CraftingTable'
 import { Screen } from '../Screen/Screen'
-import { Spellbook } from '../Interface/Spellbook'
-import { Console } from '../Interface/Console'
+import { BranchPanel } from '../Interface/BranchPanel'
+import { GrimorioConsole } from '../Interface/GrimorioConsole'
 import { ResetButton } from '../Components/ResetButton'
+import { MergePreview } from '../Interface/MergePreview'
 
 export const Level3 = () => {
     return (
         <div className='App'>
             <MainItem />
             <CraftingTable />
+            <BranchPanel />
             <Screen />
-            <Spellbook />
-            <Console />
+            <GrimorioConsole />
             <ResetButton />
+            <MergePreview />
         </div>
     );
 };

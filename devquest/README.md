@@ -1,97 +1,142 @@
 # GitQuest
 
-Un juego de rol educativo donde aprendes Git 
-crafteando items mágicos en un dungeon.
+Videojuego educativo de navegador donde aprendes 
+Git escribiendo comandos reales en un terminal 
+integrado. Cada comando tiene un efecto visual 
+inmediato en el juego.
+
+🎮 [Jugar ahora](https://diegochavezmtz.github.io/DevQuest/)
+
+---
 
 ## El problema que resuelve
 
 Enseño Git a estudiantes de 4to y 5to semestre 
-que lo usan por primera vez de forma real — no 
-solo para clonar repos.
+que lo usan por primera vez de forma real.
 
-El obstáculo más común no es la sintaxis. Es 
-abstraer las tres áreas de trabajo: working 
-directory, staging area y repositorio. Los 
-estudiantes memorizan los comandos pero no 
-entienden qué está pasando ni por qué.
+El obstáculo más común no es la sintaxis — es 
+abstraer las tres áreas de trabajo. Los estudiantes 
+memorizan comandos sin entender qué está pasando 
+ni por qué. Los diagramas no ayudan. Necesitaba 
+algo tangible.
 
-Los simuladores de terminal no ayudan — siguen 
-siendo abstractos. Necesitaba algo tangible.
+---
 
-## La solución
+## La solución: Git como mecánica de RPG
 
-Cada área de Git se convierte en un lugar físico 
-con objetos que puedes ver y mover:
+Cada concepto de Git se convierte en algo físico 
+que puedes ver y manipular:
 
-| Git | GitQuest |
-|-----|----------|
-| Working directory | Mapa del dungeon |
-| git add | Mover items a la Crafting Table |
+| Git real | GitQuest |
+|----------|----------|
+| Working directory | Bolsa del jugador |
 | Staging area | Crafting Table |
-| git commit | Fusionar items al Repositorio |
-| git reset | Devolver items al inventario |
+| Repositorio | Item forjado en la rama |
+| `git add` | Mover items al Crafting Table |
+| `git commit` | Forjar items según receta |
+| `git reset` | Devolver items a la bolsa |
+| Ramas (branches) | Líneas paralelas del dungeon |
+| `git merge` | Fusionar items de dos ramas |
+| Comandos git | Hechizos del grimorio |
 
-La metáfora no es decorativa — es funcional. 
-Cuando un estudiante escribe `git add .` y ve 
-sus items moverse físicamente a la Crafting 
-Table, entiende qué hace staging de una forma 
-que ningún diagrama logra.
+Cuando un estudiante escribe `git merge` y ve 
+dos items de ramas distintas fusionarse en uno 
+más poderoso — o convertirse en burntCarbon si 
+son incompatibles — entiende branching de una 
+forma que ningún diagrama logra.
 
-La inspiración fue D&D y el crafting de items: 
-si juntas ingredientes en una mesa de trabajo 
-y los confirmas, obtienes un artefacto más 
-poderoso. Eso es exactamente lo que hace un 
-commit.
+---
 
-## Decisiones de diseño
+## Sistema de juego
 
-**Sin instalación, sin requisitos.**
-Corre completamente en el navegador para que 
-funcione en cualquier dispositivo — incluyendo 
-el celular de un estudiante que no tiene laptop 
-en clase. El único requisito es una URL.
+### 7 tiers de items con progresión real
 
-**Sesiones cortas e independientes.**
-No es una campaña larga. Está diseñado para 
-usarse en 15-20 minutos dentro de una clase, 
-enfocado en un concepto específico. El 
-localStorage mantiene el progreso sin necesitar 
-cuenta ni backend.
+| Tier | Rareza | Cómo se obtiene |
+|------|--------|-----------------|
+| T0 | Fracaso | Merge de ramas incompatibles |
+| T1 | Común | Recolectados en el dungeon |
+| T2 | Inusual | `git commit` con 2 items |
+| T3 | Raro | `git commit` con 3 items |
+| T4 | Épico | `git commit` con 4 items |
+| T5 | Legendario | `git merge` entre ramas T3/T4 |
+| T6 | Mítico | `git merge` entre ramas T5 |
+| T7 | Superior | `git merge` entre ramas T6 |
 
-**React para escalar niveles.**
-La arquitectura en componentes permite agregar 
-nuevos niveles y comandos sin reescribir la 
-lógica existente. Cada nivel es independiente 
-y reutiliza los mismos componentes de consola, 
-inventario y mapa.
+6 items base: manaStone, fireGem, iceGem, 
+thunderShard, shadowEssence, lightEssence.
 
-## Flujo actual
+**50 recetas de craft. 32 recetas de merge.**
+
+### Comandos implementados con lógica real
+```bash
+# Setup
+git init
+git config --global user.name "Nombre"
+git config --global user.email "email"
+
+# Flujo de trabajo
+git add .
+git reset
+git commit -m "mensaje"
+
+# Gestión de ramas
+git branch
+git branch <nombre>
+git checkout -b <nombre>
+git checkout <nombre>
+git switch <nombre>
+git merge <nombre>
 ```
-git init → git config → explorar dungeon 
-→ recolectar items → git add → git commit 
-→ artefacto forjado
-```
 
-Cada comando tiene un efecto visual inmediato 
-en el juego. El jugador aprende Git haciendo, 
-no leyendo.
+### Mecánicas especiales
 
-## Stack
+**Preview de merge** — antes de confirmar un 
+merge, un modal muestra las dos ramas, sus items 
+y el resultado esperado. Si son incompatibles, 
+advierte antes de ejecutar.
 
-- React + Vite
-- React Router para la navegación entre niveles
-- localStorage para persistencia de sesión
-- GitHub Pages para deploy
+**Dungeon aleatorio** — los items aparecen en 
+posiciones aleatorias cada sesión (Fisher-Yates 
+shuffle). El botón "Ir a otra sala" regenera 
+el layout.
 
-## Estado del proyecto
+**Herencia de ramas** — una rama nueva parte 
+con el mismo item que tenía la rama padre en 
+ese momento, igual que en Git real.
 
-El juego cubre el flujo core de Git: 
-init → config → add → commit → reset.
+**Persistencia total** — todo el estado 
+sobrevive recargas de página via localStorage.
 
-En desarrollo activo basado en feedback de 
-estudiantes reales. Los comandos avanzados 
-(branch, merge, push) están planeados como 
-niveles futuros.
+**Soporte móvil** — funciona en celular sin 
+instalación. El em-dash de iOS se convierte 
+automáticamente a `--` para no romper los 
+comandos.
+
+---
+
+## Por qué funciona en el navegador
+
+Diseñado para usarse en clase sin requisitos: 
+sin instalación, sin cuenta, sin laptop 
+obligatoria. Un estudiante puede jugarlo desde 
+su celular mientras el profesor explica el 
+concepto en paralelo.
+
+---
+
+## Decisiones técnicas
+
+- **React + Context API** para estado global 
+  del juego — permite agregar niveles sin 
+  reescribir la lógica existente
+- **Hooks personalizados** para separar lógica 
+  de comandos, inventario y ramas
+- **CSS puro con variables** — tema oscuro de 
+  mazmorra con fuentes Cinzel y Crimson Pro
+- **Sin backend** — todo corre en el cliente, 
+  cero infraestructura necesaria
+
+---
 
 ## Cómo correrlo localmente
 ```bash
@@ -101,9 +146,21 @@ npm install
 npm run dev
 ```
 
+---
+
+## Estado del proyecto
+
+Funcional y usado en clases reales con 
+estudiantes de ingeniería. En desarrollo activo 
+basado en feedback de usuarios reales.
+
+Próximo: sprites con fondo transparente, 
+nuevos dungeons y sistema de progresión 
+entre sesiones.
+
+---
+
 ## Por qué lo construí
 
 Porque la mejor forma de entender algo a fondo 
-es tener que enseñárselo a alguien más — y la 
-mejor forma de enseñarlo es hacerlo imposible 
-de malinterpretar.
+es tener que enseñárselo a alguien más.

@@ -45,25 +45,65 @@
 
 /* ── Quest item ──────────────────────────────────────── */
 .itemQuest {
-  width: 26px;
-  height: 26px;
-  background:
-    url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e34b8490-3521-4ea1-bf5f-eca2bd8cb8fa/dcci3yl-83e4a1b5-0631-49c0-a633-ac2835338874.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2UzNGI4NDkwLTM1MjEtNGVhMS1iZjVmLWVjYTJiZDhjYjhmYVwvZGNjaTN5bC04M2U0YTFiNS0wNjMxLTQ5YzAtYTYzMy1hYzI4MzUzMzg4NzQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.BQnATe3E0Uw3i5fBds-9kQJL8HFKuJIxg-OHzYMCjUw')
-    center / contain no-repeat;
-  border: 1px solid rgba(201, 168, 64, 0.5);
-  border-radius: 3px;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(201, 168, 64, 0.45);
+  border-radius: 4px;
+  background: rgba(7, 7, 13, 0.6);
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease;
   animation: itemFloat 3s ease-in-out infinite;
-  box-shadow: 0 0 8px rgba(201, 168, 64, 0.4);
+  box-shadow: 0 0 7px rgba(201, 168, 64, 0.35);
+}
+
+.itemQuest img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  pointer-events: none;
 }
 
 .itemQuest:hover {
-  cursor: pointer;
-  transform: scale(1.25);
+  transform: scale(1.3);
   box-shadow: 0 0 14px rgba(201, 168, 64, 0.85);
+  border-color: rgba(240, 192, 64, 0.9);
 }
 
 @keyframes itemFloat {
   0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-4px); }
+  50%       { transform: translateY(-3px); }
+}
+
+/* ── Botón flotante "Ir a otra sala" ─────────────────── */
+.screen__new-room-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  z-index: 10;
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-gold);
+  background: linear-gradient(180deg, #1a1400 0%, #0d0a00 100%);
+  border: 1px solid var(--border-gold-dark);
+  border-radius: 4px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: box-shadow 200ms, border-color 200ms, background 200ms;
+  box-shadow: 0 0 12px rgba(201, 168, 64, 0.25);
+}
+
+.screen__new-room-btn:hover {
+  border-color: var(--border-gold);
+  background: linear-gradient(180deg, #2e2400 0%, #1a1400 100%);
+  box-shadow: 0 0 18px rgba(201, 168, 64, 0.55);
+}
+
+.screen__new-room-btn:active {
+  transform: translateY(1px);
 }

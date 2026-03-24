@@ -20,7 +20,7 @@ export const Level2 = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const input = castSpell.trim();
+        const input = castSpell.trim().replace(/—/g, '--');
         if (!input) return;
 
         setSpellHistory(prev => [...prev, input]);

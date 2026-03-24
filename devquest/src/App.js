@@ -8,6 +8,7 @@ import { PlayerProvider } from './Context/PlayerProvider';
 import { SpellProvider } from './Context/SpellProvider';
 import { CraftingTableProvider } from './Context/CraftingTableProvider';
 import { MainItemsProvider } from './Context/MainItemsProvider';
+import { BranchProvider } from './Context/BranchProvider';
 // Pages
 import { Home } from './Pages/Home';
 import { Level2 } from './Pages/Level2';
@@ -20,12 +21,14 @@ function App() {
         <SpellProvider>
           <CraftingTableProvider>
             <MainItemsProvider>
+              <BranchProvider>
               <Notification />
               <Routes>
                 <Route path="/"        element={<Home />} />
                 <Route path="/level/2" element={<Level2 />} />
                 <Route path="/level/3" element={<Level3 />} />
               </Routes>
+              </BranchProvider>
             </MainItemsProvider>
           </CraftingTableProvider>
         </SpellProvider>

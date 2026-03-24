@@ -7,6 +7,8 @@ const STORAGE_KEYS = [
     'devquest_craftingTable',
     'devquest_mainItems',
     'devquest_collectedPositions',
+    'devquest_itemPositions',
+    'devquest_branches',
 ];
 
 export const ResetButton = () => {
