@@ -12,12 +12,13 @@ inmediato en el juego.
 ## El problema que resuelve
 
 Enseño Git a estudiantes de 4to y 5to semestre 
-que lo usan por primera vez de forma real.
+que lo usan por primera vez de forma real y no solo
+para clonar repos.
 
 El obstáculo más común no es la sintaxis — es 
 abstraer las tres áreas de trabajo. Los estudiantes 
 memorizan comandos sin entender qué está pasando 
-ni por qué. Los diagramas no ayudan. Necesitaba 
+ni por qué. Los diagramas no eran suficientes. Necesitaba 
 algo tangible.
 
 ---
@@ -150,7 +151,7 @@ npm run dev
 
 ## Estado del proyecto
 
-Funcional y usado en clases reales con 
+Funcional y usado en clases con 
 estudiantes de ingeniería. En desarrollo activo 
 basado en feedback de usuarios reales.
 
@@ -162,5 +163,6 @@ entre sesiones.
 
 ## Por qué lo construí
 
-Porque la mejor forma de entender algo a fondo 
-es tener que enseñárselo a alguien más.
+Creo que la mejor forma de entender algo a fondo 
+es tener que enseñárselo a alguien más. Y construir
+herramientas para potenciar la enseñanza.
