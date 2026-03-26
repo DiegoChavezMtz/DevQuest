@@ -109,6 +109,22 @@
   transform: translateY(1px);
 }
 
+/* ── Mobile overrides ────────────────────────────────── */
+@media (max-width: 768px) {
+  .grimorio--Container {
+    height: 17dvh;
+    flex-shrink: 0;
+  }
+
+  .grimorio__log {
+    overflow-y: auto;
+  }
+
+  .grimorio__form input {
+    font-size: 16px;
+  }
+}
+
 /* ── Legado: clases del Spellbook antiguo (por si se usan en otro sitio) ── */
 .spellBook--Container { display: flex; flex-direction: column; overflow: hidden; }
 .spelltable--Container { display: flex; flex-direction: column; background: var(--bg-inset); }

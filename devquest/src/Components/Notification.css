@@ -72,3 +72,17 @@
   from { opacity: 1; transform: translateX(0); }
   to   { opacity: 0; transform: translateX(110%); }
 }
+
+@media (max-width: 768px) {
+  .notification-container {
+    bottom: unset;
+    top: calc(60px + env(safe-area-inset-top));
+    right: 12px;
+    left: 12px;
+  }
+
+  .notification {
+    min-width: unset;
+    max-width: 100%;
+  }
+}

@@ -12,8 +12,7 @@
     background: var(--bg-panel);
     border: 1px solid var(--border-gold);
     box-shadow: 0 0 32px var(--glow-gold-str);
-    min-width: 460px;
-    max-width: 90vw;
+    width: min(460px, 92vw);
     display: flex;
     flex-direction: column;
     gap: 0;
@@ -147,4 +146,33 @@
 
 .merge__btn--danger:hover {
     box-shadow: 0 0 8px rgba(192, 57, 43, 0.4);
+}
+
+@media (max-width: 480px) {
+    .merge__body {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 14px 12px;
+    }
+
+    .merge__card {
+        min-width: 70px;
+        padding: 8px;
+    }
+
+    .merge__card-img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .merge__actions {
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+    }
+
+    .merge__btn {
+        width: 100%;
+        text-align: center;
+    }
 }

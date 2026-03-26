@@ -121,3 +121,18 @@
   color: var(--text-dim);
   font-style: italic;
 }
+
+@media (max-width: 768px) {
+  .mainItem--Container {
+    height: 8dvh;
+  }
+
+  .mainItem img {
+    width: 34px;
+    height: 34px;
+  }
+
+  .mainItem__name {
+    font-size: 11px;
+  }
+}

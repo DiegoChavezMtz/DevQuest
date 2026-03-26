@@ -18,6 +18,7 @@ export const Home = () => {
         setCastSpell('');
 
         if (input === 'git init') {
+            localStorage.clear();
             notify('¡Dungeon inicializado! Preparando tu aventura...', 'success');
             setTimeout(() => navigate('/level/2'), 1200);
         } else {

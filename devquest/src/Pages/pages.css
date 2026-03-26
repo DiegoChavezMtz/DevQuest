@@ -1,7 +1,7 @@
 /* ── Shared page shell ───────────────────────────────── */
 .page {
-  height: 100vh;
-  width: 100vw;
+  height: 100dvh;
+  width: 100%;
   background-color: var(--bg-deep);
   color: var(--text-parchment);
   font-family: 'Crimson Pro', Georgia, serif;
@@ -111,8 +111,8 @@
    HOME PAGE
 ══════════════════════════════════════════════════════ */
 .home-page {
-  height: 100vh;
-  width: 100vw;
+  height: 100dvh;
+  width: 100%;
   background-color: var(--bg-deep);
   color: var(--text-parchment);
   font-family: 'Crimson Pro', Georgia, serif;
@@ -133,7 +133,7 @@
   width: 100%;
   max-width: 560px;
   padding: 0 24px;
-  height: 100vh;
+  height: 100dvh;
   justify-content: center;
 }
 
@@ -206,8 +206,8 @@
    LEVEL 2 PAGE
 ══════════════════════════════════════════════════════ */
 .level2-page {
-  height: 100vh;
-  width: 100vw;
+  height: 100dvh;
+  width: 100%;
   background-color: var(--bg-deep);
   color: var(--text-parchment);
   font-family: 'Crimson Pro', Georgia, serif;
@@ -397,3 +397,95 @@
   box-shadow: 0 0 10px var(--glow-gold);
 }
 .level2-page__console button:active { transform: translateY(1px); }
+
+/* ══════════════════════════════════════════════════════
+   MOBILE OVERRIDES  (≤ 768px)
+══════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* ── Home ── */
+  .home-page__inner {
+    height: auto;
+    min-height: 100dvh;
+    justify-content: flex-start;
+    padding-top: calc(48px + env(safe-area-inset-top));
+    padding-bottom: 24px;
+    gap: 16px;
+  }
+
+  .home-page__title {
+    white-space: normal;
+    font-size: clamp(22px, 7vw, 36px);
+    text-align: center;
+  }
+
+  .home-page__spellbook {
+    height: 90px;
+  }
+
+  /* ── Level 2 ── */
+  .level2-page {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: unset;
+    overflow: hidden;
+  }
+
+  /* Instrucciones: altura fija, siempre visibles, sin scroll */
+  .level2-page__left {
+    height: 44dvh;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 14px 16px;
+    gap: 8px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-gold-dark);
+  }
+
+  /* Ocultar el lore decorativo en móvil para dar espacio a los objetivos */
+  .level2-page__lore {
+    display: none;
+  }
+
+  .level2-page__title {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  .level2-page__objectives {
+    flex-shrink: 0;
+  }
+
+  .level2-page__objective {
+    padding: 8px 12px;
+  }
+
+  /* Panel derecho: grimorio scrolleable + input fijo */
+  .level2-page__right {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .level2-page__spellbook {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .level2-page__spellbook-entries {
+    overflow-y: auto;
+  }
+
+  .level2-page__console {
+    flex-shrink: 0;
+  }
+
+  /* Prevenir zoom iOS en inputs (necesitan font-size ≥ 16px) */
+  .page-console input,
+  .level2-page__console input {
+    font-size: 16px;
+  }
+}
