@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/DevQuest/static/css/main.636b63a4.css",
-    "main.js": "/DevQuest/static/js/main.0692043a.js",
+    "main.css": "/DevQuest/static/css/main.e43147d0.css",
+    "main.js": "/DevQuest/static/js/main.7972fc1d.js",
     "static/js/453.94618b68.chunk.js": "/DevQuest/static/js/453.94618b68.chunk.js",
     "index.html": "/DevQuest/index.html",
-    "main.636b63a4.css.map": "/DevQuest/static/css/main.636b63a4.css.map",
-    "main.0692043a.js.map": "/DevQuest/static/js/main.0692043a.js.map",
+    "main.e43147d0.css.map": "/DevQuest/static/css/main.e43147d0.css.map",
+    "main.7972fc1d.js.map": "/DevQuest/static/js/main.7972fc1d.js.map",
     "453.94618b68.chunk.js.map": "/DevQuest/static/js/453.94618b68.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.636b63a4.css",
-    "static/js/main.0692043a.js"
+    "static/css/main.e43147d0.css",
+    "static/js/main.7972fc1d.js"
   ]
 }
