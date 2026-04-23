@@ -113,11 +113,7 @@ export const Screen = () => {
                     if (i === 0) {
                         return (
                             <div key={i} className='screenGrid'>
-                                <img
-                                    className='character'
-                                    src="https://www.nicepng.com/png/detail/556-5563824_boba-fett-darkest-dungeon-character-icons.png"
-                                    alt="character"
-                                />
+                                <span className='character'>🧙</span>
                             </div>
                         );
                     }
@@ -133,11 +129,10 @@ export const Screen = () => {
                     }
                     return <div key={i} className='screenGrid' />;
                 })}
-
-                <button className='screen__new-room-btn' onClick={handleNewRoom}>
-                    ⚔ Ir a otra sala
-                </button>
             </div>
+            <button className='screen__new-room-btn' onClick={handleNewRoom}>
+                ⚔ Ir a otra sala
+            </button>
         </div>
     );
 };

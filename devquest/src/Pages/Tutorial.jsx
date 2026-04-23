@@ -6,9 +6,8 @@ import { BranchPanel } from '../Interface/BranchPanel'
 import { GrimorioConsole } from '../Interface/GrimorioConsole'
 import { ResetButton } from '../Components/ResetButton'
 import { MergePreview } from '../Interface/MergePreview'
-import { CombinationsGuide } from '../Interface/CombinationsGuide'
 
-export const Level3 = () => {
+export const Tutorial = () => {
     return (
         <div className='App'>
             <MainItem />
@@ -18,7 +17,6 @@ export const Level3 = () => {
             <GrimorioConsole />
             <ResetButton />
             <MergePreview />
-            <CombinationsGuide />
         </div>
     );
 };

@@ -45,6 +45,13 @@ export const Home = () => {
                     Escribe <code>git init</code> para empezar tu primer dungeon
                 </p>
 
+                <button
+                    className='home-page__sandbox-btn'
+                    onClick={() => navigate('/tutorial')}
+                >
+                    🏕 Modo Sandbox
+                </button>
+
                 <div className='home-page__spellbook'>
                     <h5>Grimorio</h5>
                     <div className='page-spellbook__entries'>

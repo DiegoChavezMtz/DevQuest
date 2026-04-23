@@ -13,6 +13,7 @@ import { BranchProvider } from './Context/BranchProvider';
 import { Home } from './Pages/Home';
 import { Level2 } from './Pages/Level2';
 import { Level3 } from './Pages/Level3';
+import { Tutorial } from './Pages/Tutorial';
 
 function App() {
   return (
@@ -24,9 +25,10 @@ function App() {
               <BranchProvider>
               <Notification />
               <Routes>
-                <Route path="/"        element={<Home />} />
-                <Route path="/level/2" element={<Level2 />} />
-                <Route path="/level/3" element={<Level3 />} />
+                <Route path="/"          element={<Home />} />
+                <Route path="/level/2"  element={<Level2 />} />
+                <Route path="/level/3"  element={<Level3 />} />
+                <Route path="/tutorial" element={<Tutorial />} />
               </Routes>
               </BranchProvider>
             </MainItemsProvider>

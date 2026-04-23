@@ -202,6 +202,26 @@
   width: 100%;
 }
 
+.home-page__sandbox-btn {
+  background: none;
+  border: 1px solid var(--border-stone-lite);
+  border-radius: 4px;
+  color: var(--text-muted);
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 7px 20px;
+  cursor: pointer;
+  transition: all 200ms;
+}
+.home-page__sandbox-btn:hover {
+  border-color: var(--border-gold-dark);
+  color: var(--text-parchment);
+  background: rgba(201, 168, 64, 0.04);
+}
+
 /* ══════════════════════════════════════════════════════
    LEVEL 2 PAGE
 ══════════════════════════════════════════════════════ */

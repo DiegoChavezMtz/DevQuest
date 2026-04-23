@@ -2,6 +2,7 @@
 .screen--Container {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 /* ── Dungeon map grid ────────────────────────────────── */
@@ -38,9 +39,10 @@
 
 /* ── Character sprite ────────────────────────────────── */
 .character {
-  height: 70px;
+  font-size: 2.4rem;
+  line-height: 1;
   filter: drop-shadow(0 0 6px rgba(201, 168, 64, 0.6));
-  background: transparent;
+  user-select: none;
 }
 
 /* ── Quest item ──────────────────────────────────────── */

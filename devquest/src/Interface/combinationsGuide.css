@@ -1,0 +1,210 @@
+/* ── Botón flotante de la guía ──────────────────────── */
+.guide-bar {
+    position: fixed;
+    top: calc(14px + env(safe-area-inset-top) + 42px);
+    right: calc(14px + env(safe-area-inset-right));
+    z-index: 999;
+}
+
+.guide-goal {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(180deg, #1a1400 0%, #0d0a00 100%);
+    border: 1px solid var(--border-gold-dark);
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-gold);
+    box-shadow: 0 0 8px rgba(201, 168, 64, 0.15);
+}
+
+.guide-goal__tier {
+    font-size: 9px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.guide-open-btn {
+    background: linear-gradient(180deg, #1a1400 0%, #0d0a00 100%);
+    border: 1px solid var(--border-gold-dark);
+    border-radius: 4px;
+    color: var(--text-gold);
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 200ms ease;
+    box-shadow: 0 0 6px rgba(201, 168, 64, 0.1);
+}
+
+.guide-open-btn:hover {
+    border-color: var(--border-gold);
+    box-shadow: 0 0 10px rgba(201, 168, 64, 0.35);
+    color: var(--text-gold);
+}
+
+/* ── Overlay / Modal ─────────────────────────────────── */
+.guide__overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.80);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+}
+
+.guide__modal {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-gold);
+    box-shadow: 0 0 32px var(--glow-gold-str);
+    width: min(480px, 94vw);
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.guide__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border-gold-dark);
+    flex-shrink: 0;
+}
+
+.guide__header h5 {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-gold);
+    margin: 0;
+}
+
+.guide__close-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: color 150ms;
+}
+
+.guide__close-btn:hover {
+    color: var(--text-parchment);
+}
+
+/* ── Objetivo banner ─────────────────────────────────── */
+.guide__goal-banner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-bottom: 1px solid var(--border-gold-dark);
+    background: rgba(201, 168, 64, 0.05);
+    flex-shrink: 0;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-parchment);
+}
+
+.guide__goal-banner .guide__goal-emoji {
+    font-size: 1.4rem;
+}
+
+.guide__goal-banner .guide__goal-tier {
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-left: auto;
+}
+
+/* ── Scrollable body ─────────────────────────────────── */
+.guide__body {
+    overflow-y: auto;
+    padding: 12px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.guide__body::-webkit-scrollbar { width: 4px; }
+.guide__body::-webkit-scrollbar-track { background: var(--bg-inset); }
+.guide__body::-webkit-scrollbar-thumb { background: var(--border-gold-dark); border-radius: 2px; }
+
+/* ── Sección ─────────────────────────────────────────── */
+.guide__section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 10px 0 6px;
+    border-bottom: 1px solid var(--border-stone);
+    margin-bottom: 4px;
+}
+
+/* ── Fila de receta ──────────────────────────────────── */
+.guide__recipe {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 4px;
+    font-size: 0.85rem;
+    color: var(--text-parchment);
+    border-radius: 3px;
+    transition: background 120ms;
+}
+
+.guide__recipe:hover {
+    background: rgba(201, 168, 64, 0.06);
+}
+
+.guide__recipe--goal {
+    background: rgba(201, 168, 64, 0.08);
+    border: 1px solid rgba(201, 168, 64, 0.25);
+    border-radius: 4px;
+}
+
+.guide__recipe--goal:hover {
+    background: rgba(201, 168, 64, 0.14);
+}
+
+.guide__recipe .recipe-name {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-left: 2px;
+    font-style: italic;
+}
+
+.guide__recipe .recipe-sep {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+}
+
+.guide__recipe .recipe-arrow {
+    color: var(--text-gold);
+    font-size: 0.75rem;
+    margin: 0 2px;
+}
